@@ -1,0 +1,15 @@
+{
+    "name": "WebUIMap",
+    "description": "Web User Interface Map",
+    "repository": "www.bjss.com/repository",
+    "scripts": {
+    	"test": "node bin/bootstrap.js"
+    },
+    "version": "0.0.1",
+    "engines": {
+        "node": "0.10.x"
+    },
+    "dependencies": {
+        
+    }
+}
