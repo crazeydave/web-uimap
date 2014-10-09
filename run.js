@@ -10,7 +10,7 @@ console.log(uiMap);
 
 //console.log(uiMap.to("Dave::One.Two()"));
 
-uiMap.load('./lib/ui-map-sample.js');
+uiMap.load('./lib/ui-map-sample_1.js');
 
 setTimeout(function () {
 
