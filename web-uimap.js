@@ -1,7 +1,5 @@
 module.exports = function() {
 
-    var fs = require('fs');
-
     // Common Functions & Object Extensions
 
     // * *
@@ -292,14 +290,13 @@ module.exports = function() {
         return keys;
     }
    
+    
+   
     /* 
      * Create Map
      */
-   
-    var rollupManager;
+       
     
-    var uiMap = function() {    
-
         //******************************************************************************
 // Globals, including constants
 
@@ -1472,62 +1469,19 @@ module.exports = function() {
             return (UIMap.self == null) ? new UIMap() : UIMap.self;
         }
 
-        return new UIMap();
+        UIMap.to = function(specifier) {
+            return UIMap.getInstance().getLocator(specifier);
+        }       
 
-    }(); // End of Create Map
-
-    
-    // Return Mapper Object
-
-    return {
-        load: function(filename) {
-
-            fs.readFile(filename, function(err, data) {
-
-                if (err) {
-                    throw err;
-                }
-
-                //var libarayCall = new Function(data);
-
-                //libarayCall();
-
-                eval(data);
-
-//console.log(data);
-
-                console.log("Loaded Map: " + filename);
-            });
-
-        },
-        to: function(specifier) {
-
-            console.log(uiMap);
-
-            console.log(uiMap.getPageset("issue"));
-
-            var locator;
-
-            console.log("Searching: " + specifier);
-
-            locator = uiMap.getLocator(specifier);
-
-            console.log("Found: " + locator);
-
-            return locator;
-
+        // Private/Support Functions
+        function is_IDE() {
+            return false;
         }
 
-    };
+        function safe_alert(message) {
+            console.log("Alert: " + message);
+        }
 
-    // Private/Support Functions
-    function is_IDE() {
-        return false;
-    }
-
-    function safe_alert(message) {
-
-        console.log(message);
-    }
+        return new UIMap();
 
 }(); // End of Export Function
